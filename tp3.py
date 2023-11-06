@@ -18,10 +18,41 @@ Problema
 
 ¿Quien usa vim?
 '''
-
-#import:
 import random
 import time
 
-#identificar un individio
+# Variables globales
+colores = ["Roja", "Verde", "Blanca", "Amarilla", "Azul"]
+profesiones = ["Matemático", "Hacker", "Analista", "Desarrollador", "Ingeniero"]
+lenguajes = ["Python", "Java", "JavaScript", "C#", "C++"]
+bases_de_datos = ["Redis", "Cassandra", "HBase", "MongoDB", "Neo4J"]
+editores = ["Brackets", "Atom", "Notepad++", "Sublime Text", "Vim"]
+
+
+# Punto 1: Identificar y diseñar un individuo
+
+# Función para generar un individuo aleatorio
+def generar_individuo_aleatorio():
+    individuo = random.sample(colores, len(colores))  # Permutación aleatoria de colores
+    individuo.extend(random.sample(profesiones, len(profesiones)))  # Permutación aleatoria de profesiones
+    individuo.extend(random.sample(lenguajes, len(lenguajes)))  # Permutación aleatoria de lenguajes
+    individuo.extend(random.sample(bases_de_datos, len(bases_de_datos)))  # Permutación aleatoria de bases de datos
+    individuo.extend(random.sample(editores, len(editores)))  # Permutación aleatoria de editores
+    return individuo
+
+individuo = generar_individuo_aleatorio()
+print ("Punto 1:", individuo)
+
+
+# Punto 2: Proponga un método para la generación de individuos. Poblar el universo de individuos iniciales
+
+tamaño_de_la_poblacion = 50
+
+poblacion_inicial = [generar_individuo_aleatorio() for _ in range(tamaño_de_la_poblacion)]
+print ("Punto 2:", poblacion_inicial)
+
+# Punto 3: A partir del código/estructura provista
+# a. Implementar el operador Selección
+# b. Implementar el operador Cruzamiento
+# c. Implementar el operador Mutación
 
