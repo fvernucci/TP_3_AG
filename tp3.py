@@ -16,7 +16,7 @@ Problema
 14. El Ingeniero usa MongoDB.
 15. EL desarrollador vive en la casa azul.
 
-¿Quien usa vim?
+Responder: ¿Quien usa el editor Vim?
 '''
 import random
 import time
@@ -101,21 +101,21 @@ def condicion_corte(iteracion_actual, tiempo_inicial, max_iteraciones, max_tiemp
 # Algoritmo genético para encontrar al usuario de Vim
 def algoritmo_genetico():
     maximo_generaciones = 1000
-    poblacion_actual = poblacion_inicial.copy()  # Hacer una copia de la población inicial
+    poblacion_actual = poblacion_inicial.copy()  
 
     for generacion in range(maximo_generaciones):
         nueva_poblacion = []
 
-        # Evaluar la aptitud de cada individuo en la población actual
+        # Se evalua la aptitud de cada individuo en la población actual
         for individuo in poblacion_actual:
             individuo['aptitud'] = calcular_aptitud(individuo)
 
-        # Comprobar si se ha encontrado al usuario de Vim
+        # Se comprueba si se ha encontrado al usuario de Vim
         usuario_vim = next((ind for ind in poblacion_actual if 'Vim' in ind['Editor']), None)
         if usuario_vim:
             return usuario_vim
 
-        # Seleccionar padres, realizar cruce y mutación para crear la siguiente generación
+        # Se seleccionan padres, se realiza el cruce y la mutación para crear la siguiente generación
         while len(nueva_poblacion) < tamaño_poblacion:
             padres = random.sample(poblacion_actual, 2)
             descendencia = cruzamiento_simple(padres[0], padres[1])
@@ -124,7 +124,7 @@ def algoritmo_genetico():
 
         poblacion_actual = nueva_poblacion
 
-        # Agregar condiciones de corte
+        # Se agregan condiciones de corte
         condicion, motivo = condicion_corte(generacion, tiempo_inicial, max_iteraciones, max_tiempo, umbral_aptitud)
         if condicion:
             print(f"Condición de corte: {motivo}")
@@ -132,9 +132,9 @@ def algoritmo_genetico():
 
     return None
 
-# Resolver el acertijo utilizando el algoritmo genético
+# Resolución del acertijo utilizando el algoritmo genético
 max_iteraciones = 1000
-max_tiempo = 60  # segundos
+max_tiempo = 60  #segundos
 umbral_aptitud = len(RESTRICCIONES)
 tiempo_inicial = time.time()
 
